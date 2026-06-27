@@ -1,0 +1,515 @@
+"""
+visuals.py
+----------
+Visualizaciones con Plotly. Paleta sobria Rayados.
+
+Funciones organizadas por seccion:
+- Club: donut presupuesto, barras horizontales salarios, donut nacionalidades
+- Diagnostico: gauge de brecha, radar Rayados vs campeones
+- Scouting: radar de comparacion, scatter encaje-riesgo, scatter valor-score
+- Propuesta: sankey flujo de dinero
+"""
+import pandas as pd
+import numpy as np
+import plotly.graph_objects as go
+import plotly.express as px
+
+
+# =========================================================================
+# PALETA RAYADOS
+# =========================================================================
+RAYADOS_BLUE = "#003DA5"
+RAYADOS_BLUE_LIGHT = "#3E66C2"
+RAYADOS_BLUE_PALE = "#DCE5F4"
+RAYADOS_DARK = "#1C1C1C"
+RAYADOS_GREY = "#6B7280"
+RAYADOS_LIGHT = "#F3F4F6"
+ACCENT_RED = "#DC2626"
+ACCENT_GREEN = "#059669"
+ACCENT_AMBER = "#D97706"
+RIVAL_COLORS = ["#94A3B8", "#64748B", "#475569"]
+
+LAYOUT_BASE = dict(
+    font=dict(family="Inter, Helvetica, Arial, sans-serif", size=12, color=RAYADOS_DARK),
+    paper_bgcolor="white",
+    plot_bgcolor="white",
+    margin=dict(l=40, r=20, t=50, b=40),
+)
+
+
+def _layout(fig: go.Figure, title: str = "") -> go.Figure:
+    fig.update_layout(**LAYOUT_BASE)
+    if title:
+        fig.update_layout(title=dict(text=title, font=dict(size=15, color=RAYADOS_DARK)))
+    fig.update_xaxes(showgrid=False, linecolor=RAYADOS_GREY, zeroline=False)
+    fig.update_yaxes(showgrid=True, gridcolor="#E5E7EB", zeroline=False)
+    return fig
+
+
+# =========================================================================
+# CLUB
+# =========================================================================
+def donut_budget(club_info: dict) -> go.Figure:
+    """Donut: como se reparte el presupuesto anual."""
+    salarios = club_info["masa_salarial_actual"]
+    fichajes = club_info["presupuesto_fichajes"]
+    scouting = club_info["presupuesto_scouting"]
+    total = club_info["presupuesto_anual_total"]
+    operacion = max(0, total - salarios - fichajes - scouting)
+
+    fig = go.Figure(go.Pie(
+        labels=["Masa salarial", "Presupuesto fichajes", "Scouting", "Operacion / resto"],
+        values=[salarios, fichajes, scouting, operacion],
+        hole=0.62,
+        marker=dict(colors=[RAYADOS_BLUE, RAYADOS_BLUE_LIGHT, ACCENT_AMBER, RAYADOS_LIGHT],
+                    line=dict(color="white", width=2)),
+        textinfo="percent",
+        textposition="inside",
+        textfont=dict(size=12, color="white"),
+    ))
+    fig.add_annotation(
+        text=f"<b>{total:.0f}</b><br>M€ totales",
+        x=0.5, y=0.5, showarrow=False, font=dict(size=18, color=RAYADOS_DARK),
+    )
+    fig.update_layout(**LAYOUT_BASE, showlegend=True, height=380,
+                       legend=dict(orientation="v", yanchor="middle", y=0.5, xanchor="left", x=1.05),
+                       title=dict(text="Distribucion del presupuesto anual", font=dict(size=15)))
+    return fig
+
+
+def donut_salary_cap(club_info: dict) -> go.Figure:
+    """Donut: % consumido del tope salarial."""
+    consumido = club_info["masa_salarial_actual"]
+    limite = club_info["limite_salarial_liga"]
+    disponible = max(0, limite - consumido)
+    pct = consumido / limite * 100
+
+    color_consumido = ACCENT_GREEN if pct < 70 else ACCENT_AMBER if pct < 90 else ACCENT_RED
+
+    fig = go.Figure(go.Pie(
+        labels=["Consumido", "Disponible"],
+        values=[consumido, disponible],
+        hole=0.7,
+        marker=dict(colors=[color_consumido, RAYADOS_LIGHT], line=dict(color="white", width=2)),
+        textinfo="none",
+        sort=False, direction="clockwise",
+    ))
+    fig.add_annotation(
+        text=f"<b>{pct:.0f}%</b><br>{consumido:.0f} / {limite:.0f} M€",
+        x=0.5, y=0.5, showarrow=False, font=dict(size=16, color=RAYADOS_DARK),
+    )
+    fig.update_layout(**LAYOUT_BASE, showlegend=True, height=320,
+                       title=dict(text="Tope salarial Liga MX", font=dict(size=15)))
+    return fig
+
+
+def bar_salaries_squad(squad: pd.DataFrame, top_n: int = 12) -> go.Figure:
+    """Barras horizontales: top salarios de la plantilla."""
+    df = squad.nlargest(top_n, "salario_meur").sort_values("salario_meur")
+    fig = go.Figure(go.Bar(
+        x=df["salario_meur"], y=df["jugador"], orientation="h",
+        marker=dict(color=RAYADOS_BLUE, line=dict(color="white", width=1)),
+        text=df["salario_meur"].apply(lambda x: f"{x:.1f} M€"),
+        textposition="outside",
+    ))
+    fig.update_xaxes(title="Salario anual (M€)")
+    return _layout(fig, f"Top {top_n} salarios plantilla actual")
+
+
+def scatter_age_value_squad(squad: pd.DataFrame) -> go.Figure:
+    """Edad vs valor de mercado plantilla actual. Quien revaloriza o pierde valor."""
+    df = squad.copy()
+    df["color"] = df["edad"].apply(
+        lambda x: ACCENT_RED if x >= 32 else ACCENT_AMBER if x >= 30 else
+                  ACCENT_GREEN if x <= 24 else RAYADOS_BLUE
+    )
+    fig = go.Figure(go.Scatter(
+        x=df["edad"], y=df["valor_mercado_meur"], mode="markers+text",
+        marker=dict(size=16, color=df["color"], line=dict(color="white", width=2)),
+        # apellidos solamente para evitar nombres largos encimados
+        text=df["jugador"].apply(lambda x: x.split()[-1] if len(x.split()) > 1 else x),
+        textposition="top center", textfont=dict(size=10, color=RAYADOS_DARK),
+        hovertemplate="<b>%{text}</b><br>Edad: %{x}<br>Valor: %{y} M€<extra></extra>",
+    ))
+    # zonas
+    fig.add_vrect(x0=30, x1=40, fillcolor=ACCENT_RED, opacity=0.05, line_width=0,
+                   annotation_text="Zona venta", annotation_position="top right",
+                   annotation_font_size=10)
+    fig.add_vrect(x0=18, x1=24, fillcolor=ACCENT_GREEN, opacity=0.05, line_width=0,
+                   annotation_text="Zona revalorizacion", annotation_position="top left",
+                   annotation_font_size=10)
+    fig.update_xaxes(title="Edad")
+    fig.update_yaxes(title="Valor de mercado (M€)")
+    fig.update_layout(height=500)   # mas altura para que no se encimen
+    return _layout(fig, "Plantilla: edad vs valor de mercado")
+
+
+def donut_nationalities(squad: pd.DataFrame) -> go.Figure:
+    counts = squad["nacionalidad"].value_counts()
+    # paleta ampliada para muchas nacionalidades
+    palette = [RAYADOS_BLUE, RAYADOS_BLUE_LIGHT, RAYADOS_GREY,
+                ACCENT_AMBER, ACCENT_GREEN, RAYADOS_BLUE_PALE,
+                "#7F1D1D", "#92400E", "#1E3A8A", "#064E3B"]
+    fig = go.Figure(go.Pie(
+        labels=counts.index, values=counts.values, hole=0.5,
+        marker=dict(colors=palette[:len(counts)], line=dict(color="white", width=2)),
+        textinfo="label+value",
+        textposition="inside",
+        textfont=dict(size=11, color="white"),
+        insidetextorientation="horizontal",
+    ))
+    fig.update_layout(**LAYOUT_BASE, height=380, showlegend=True,
+                       legend=dict(orientation="v", yanchor="middle", y=0.5, xanchor="left", x=1.05),
+                       title=dict(text="Distribucion por nacionalidad", font=dict(size=15)))
+    return fig
+
+
+# =========================================================================
+# DIAGNOSTICO
+# =========================================================================
+def gauge_brecha(brecha_pct: float, area: str) -> go.Figure:
+    """Indicador tipo velocimetro de la brecha."""
+    color = ACCENT_GREEN if brecha_pct < 8 else ACCENT_AMBER if brecha_pct < 15 else ACCENT_RED
+    fig = go.Figure(go.Indicator(
+        mode="gauge+number",
+        value=brecha_pct,
+        number=dict(suffix="%", font=dict(size=28, color=color)),
+        domain=dict(x=[0, 1], y=[0, 1]),
+        gauge=dict(
+            axis=dict(range=[0, 30], tickwidth=1, tickcolor=RAYADOS_GREY),
+            bar=dict(color=color, thickness=0.7),
+            bgcolor="white",
+            borderwidth=1,
+            bordercolor=RAYADOS_GREY,
+            steps=[
+                dict(range=[0, 8], color="#DCFCE7"),
+                dict(range=[8, 15], color="#FEF3C7"),
+                dict(range=[15, 30], color="#FEE2E2"),
+            ],
+        ),
+    ))
+    fig.update_layout(**LAYOUT_BASE, height=220, title=dict(text=area, font=dict(size=13)))
+    return fig
+
+
+def radar_team_vs_champions(bench: pd.DataFrame) -> go.Figure:
+    """Radar OFENSIVO Rayados vs media campeones."""
+    metricas = ["goles_90", "xg_90", "tiros_90", "pases_clave_90", "pases_completados_pct"]
+    labels = ["Goles", "xG", "Tiros", "Pases clave", "% pases"]
+    rayados = bench[bench["equipo"] == "Rayados"][metricas].mean()
+    campeones = bench[bench["equipo"] != "Rayados"][metricas].mean()
+    norm = bench[metricas].agg(["min", "max"])
+    def n(s):
+        return [(s[m] - norm.loc["min", m]) / (norm.loc["max", m] - norm.loc["min", m] + 1e-9)
+                for m in metricas]
+    fig = go.Figure()
+    fig.add_trace(go.Scatterpolar(
+        r=n(rayados) + [n(rayados)[0]], theta=labels + [labels[0]],
+        name="Rayados (Torrent)", line=dict(color=RAYADOS_BLUE, width=3),
+        fill="toself", fillcolor="rgba(0,61,165,0.25)"))
+    fig.add_trace(go.Scatterpolar(
+        r=n(campeones) + [n(campeones)[0]], theta=labels + [labels[0]],
+        name="Media campeones", line=dict(color=RAYADOS_GREY, width=2, dash="dash")))
+    fig.update_layout(
+        polar=dict(radialaxis=dict(visible=True, range=[0, 1], showticklabels=False), bgcolor="white"),
+        showlegend=True, height=420, **LAYOUT_BASE,
+        title=dict(text="Perfil OFENSIVO: Rayados vs campeones", font=dict(size=15)))
+    return fig
+
+
+def radar_team_defensivo(bench: pd.DataFrame) -> go.Figure:
+    """Radar DEFENSIVO Rayados vs media campeones. Metricas 'menos es mejor' se invierten."""
+    # menos_mejor: goles concedidos y xGA (invertir para que mas lejos del centro = mejor)
+    menos_mejor = ["goles_concedidos_90", "xga_90"]
+    mas_mejor = ["recuperaciones_90", "entradas_90", "intercepciones_90"]
+    metricas = menos_mejor + mas_mejor
+    labels = ["Goles conc.", "xGA", "Recuperac.", "Entradas", "Intercept."]
+    rayados = bench[bench["equipo"] == "Rayados"][metricas].mean()
+    campeones = bench[bench["equipo"] != "Rayados"][metricas].mean()
+    norm = bench[metricas].agg(["min", "max"])
+    def n(s):
+        out = []
+        for m in metricas:
+            v = (s[m] - norm.loc["min", m]) / (norm.loc["max", m] - norm.loc["min", m] + 1e-9)
+            if m in menos_mejor:
+                v = 1 - v  # invertir: menos goles concedidos = mejor = mas lejos
+            out.append(v)
+        return out
+    fig = go.Figure()
+    fig.add_trace(go.Scatterpolar(
+        r=n(rayados) + [n(rayados)[0]], theta=labels + [labels[0]],
+        name="Rayados (Torrent)", line=dict(color=RAYADOS_BLUE, width=3),
+        fill="toself", fillcolor="rgba(0,61,165,0.25)"))
+    fig.add_trace(go.Scatterpolar(
+        r=n(campeones) + [n(campeones)[0]], theta=labels + [labels[0]],
+        name="Media campeones", line=dict(color=RAYADOS_GREY, width=2, dash="dash")))
+    fig.update_layout(
+        polar=dict(radialaxis=dict(visible=True, range=[0, 1], showticklabels=False), bgcolor="white"),
+        showlegend=True, height=420, **LAYOUT_BASE,
+        title=dict(text="Perfil DEFENSIVO: Rayados vs campeones (mas lejos = mejor)", font=dict(size=15)))
+    return fig
+
+# =========================================================================
+# SCOUTING
+# =========================================================================
+def radar_player_vs_player(df: pd.DataFrame, kpis: list[str],
+                            nombre_col: str = "nombre") -> go.Figure:
+    """Radar comparativo entre jugadores. Espera columnas _norm."""
+    fig = go.Figure()
+    palette = [RAYADOS_BLUE, ACCENT_AMBER, ACCENT_GREEN]
+    for i, (_, row) in enumerate(df.iterrows()):
+        vals = [row.get(f"{k}_norm", 50) for k in kpis]
+        color = palette[i % len(palette)]
+        # convertir a rgba para fill
+        r_,g_,b_ = int(color[1:3],16), int(color[3:5],16), int(color[5:7],16)
+        fillcolor = f"rgba({r_},{g_},{b_},0.25)"
+        fig.add_trace(go.Scatterpolar(
+            r=vals + [vals[0]], theta=kpis + [kpis[0]],
+            name=row[nombre_col], line=dict(color=color, width=2.5),
+            fill="toself", fillcolor=fillcolor,
+        ))
+    fig.update_layout(
+        polar=dict(radialaxis=dict(visible=True, range=[0, 100], showticklabels=False),
+                   bgcolor="white"),
+        showlegend=True, height=420, **LAYOUT_BASE,
+        title=dict(text="Comparativa de perfil (KPIs normalizados 0-100)"),
+    )
+    return fig
+
+
+def scatter_fit_risk(df: pd.DataFrame) -> go.Figure:
+    """Cuadrante encaje vs riesgo. Inferior derecha = ideal."""
+    fig = go.Figure(go.Scatter(
+        x=df["score_encaje"], y=df["score_riesgo"], mode="markers+text",
+        marker=dict(
+            size=14, color=df["score_final"],
+            colorscale=[[0, RAYADOS_LIGHT], [0.5, RAYADOS_BLUE_LIGHT], [1, RAYADOS_BLUE]],
+            showscale=True, colorbar=dict(title="Final"), line=dict(color="white", width=1.5),
+        ),
+        text=df["nombre"].apply(lambda x: x.split(" #")[0]),
+        textposition="top center", textfont=dict(size=9),
+        hovertemplate="<b>%{text}</b><br>Encaje: %{x}<br>Riesgo: %{y}<extra></extra>",
+    ))
+    fig.add_hline(y=50, line=dict(color=RAYADOS_GREY, dash="dot", width=1))
+    fig.add_vline(x=65, line=dict(color=RAYADOS_GREY, dash="dot", width=1))
+    fig.add_annotation(x=85, y=25, text="OBJETIVO", showarrow=False,
+                        font=dict(size=10, color=ACCENT_GREEN))
+    fig.update_xaxes(title="Score encaje →")
+    fig.update_yaxes(title="← Score riesgo", autorange="reversed")
+    return _layout(fig, "Mapa de candidatos: encaje vs riesgo")
+
+
+def scatter_value_score(df: pd.DataFrame) -> go.Figure:
+    """Valor mercado vs score final (relacion calidad/precio)."""
+    fig = go.Figure(go.Scatter(
+        x=df["valor_mercado_meur"], y=df["score_final"], mode="markers+text",
+        marker=dict(
+            size=14, color=RAYADOS_BLUE,
+            line=dict(color="white", width=1.5),
+            opacity=0.85,
+        ),
+        text=df["nombre"].apply(lambda x: x.split(" #")[0]),
+        textposition="top center", textfont=dict(size=9),
+        hovertemplate="<b>%{text}</b><br>Valor: %{x} M€<br>Score: %{y}<extra></extra>",
+    ))
+    fig.update_xaxes(title="Valor de mercado (M€)")
+    fig.update_yaxes(title="Score final")
+    return _layout(fig, "Relacion calidad / precio")
+
+
+# =========================================================================
+# PROPUESTA - SANKEY
+# =========================================================================
+def sankey_money_flow(ventas: list[tuple], fichajes: list[tuple],
+                       presupuesto_extra: float = 0) -> go.Figure:
+    """
+    Sankey: flujo de dinero.
+    ventas: lista de (nombre, monto_meur)
+    fichajes: lista de (nombre, monto_meur)
+    presupuesto_extra: presupuesto base del club para fichajes
+    """
+    nodos = ["Presupuesto base"] + [v[0] for v in ventas] + ["Caja disponible"] + [f[0] for f in fichajes]
+    idx = {n: i for i, n in enumerate(nodos)}
+
+    sources, targets, values, colors = [], [], [], []
+
+    # presupuesto base -> caja
+    sources.append(idx["Presupuesto base"]); targets.append(idx["Caja disponible"])
+    values.append(presupuesto_extra); colors.append("rgba(0,61,165,0.4)")
+
+    # ventas -> caja
+    for nombre, monto in ventas:
+        sources.append(idx[nombre]); targets.append(idx["Caja disponible"])
+        values.append(monto); colors.append("rgba(5,150,105,0.4)")
+
+    # caja -> fichajes
+    for nombre, monto in fichajes:
+        sources.append(idx["Caja disponible"]); targets.append(idx[nombre])
+        values.append(monto); colors.append("rgba(217,119,6,0.5)")
+
+    fig = go.Figure(go.Sankey(
+        node=dict(
+            pad=20, thickness=20,
+            line=dict(color="white", width=1),
+            label=nodos,
+            color=[RAYADOS_BLUE] + [ACCENT_GREEN]*len(ventas) + [RAYADOS_BLUE_LIGHT] + [ACCENT_AMBER]*len(fichajes),
+        ),
+        link=dict(source=sources, target=targets, value=values, color=colors),
+    ))
+    fig.update_layout(**LAYOUT_BASE, height=420,
+                       title=dict(text="Flujo de dinero: ventas → caja → fichajes", font=dict(size=15)))
+    return fig
+
+
+# =========================================================================
+# ADN
+# =========================================================================
+def donut_adn(adn: pd.DataFrame) -> go.Figure:
+    """Donut honesto con 3 categorias: exitoso / fallido / no evaluable (neutro)."""
+    counts = adn["etiqueta"].value_counts()
+    n_exito = int(counts.get("exitoso", 0))
+    n_fallo = int(counts.get("fallido", 0))
+    n_neutro = int(counts.get("neutro", 0))
+
+    # Tasa de exito = exitos / (exitos + fallidos), excluyendo no evaluables
+    base_evaluable = n_exito + n_fallo
+    tasa = (n_exito / base_evaluable * 100) if base_evaluable else 0
+
+    fig = go.Figure(go.Pie(
+        labels=["Exitosos", "Fallidos", "No evaluables"],
+        values=[n_exito, n_fallo, n_neutro],
+        hole=0.6,
+        marker=dict(colors=[ACCENT_GREEN, ACCENT_RED, RAYADOS_LIGHT],
+                    line=dict(color="white", width=2)),
+        textinfo="label+value",
+        sort=False,
+    ))
+    fig.add_annotation(
+        text=f"<b>{tasa:.0f}%</b><br>tasa exito<br>({n_exito}/{base_evaluable})",
+        x=0.5, y=0.5, showarrow=False, font=dict(size=14, color=RAYADOS_DARK),
+    )
+    fig.update_layout(**LAYOUT_BASE, height=380, showlegend=True,
+                       legend=dict(orientation="v", yanchor="middle", y=0.5, xanchor="left", x=1.05),
+                       title=dict(text="Tasa historica de exito (excl. en curso)", font=dict(size=15)))
+    return fig
+
+
+def adn_age_distribution(adn: pd.DataFrame) -> go.Figure:
+    """Boxplot edad de llegada por etiqueta - patron clave."""
+    df = adn[adn["etiqueta"].isin(["exitoso", "fallido"])].copy()
+    if df.empty:
+        return go.Figure()
+    fig = go.Figure()
+    for et, color in [("exitoso", ACCENT_GREEN), ("fallido", ACCENT_RED)]:
+        sub = df[df["etiqueta"] == et]
+        if sub.empty: continue
+        fig.add_trace(go.Box(
+            x=sub["edad_llegada"], name=et.capitalize(),
+            marker_color=color,
+            boxmean=True,
+            orientation="h",
+        ))
+    fig.update_xaxes(title="Edad de llegada")
+    fig.update_layout(height=280, showlegend=False, **LAYOUT_BASE,
+                       title=dict(text="Edad de llegada: exitos vs fallidos", font=dict(size=14)))
+    return fig
+
+
+def adn_cost_distribution(adn: pd.DataFrame) -> go.Figure:
+    """Boxplot coste de fichaje por etiqueta."""
+    df = adn[adn["etiqueta"].isin(["exitoso", "fallido"])].copy()
+    df = df[df["coste_meur"] > 0]   # excluir libres para no sesgar
+    if df.empty:
+        return go.Figure()
+    fig = go.Figure()
+    for et, color in [("exitoso", ACCENT_GREEN), ("fallido", ACCENT_RED)]:
+        sub = df[df["etiqueta"] == et]
+        if sub.empty: continue
+        fig.add_trace(go.Box(
+            x=sub["coste_meur"], name=et.capitalize(),
+            marker_color=color,
+            boxmean=True,
+            orientation="h",
+        ))
+    fig.update_xaxes(title="Coste de fichaje (M€)")
+    fig.update_layout(height=280, showlegend=False, **LAYOUT_BASE,
+                       title=dict(text="Coste de fichaje (excluyendo libres)", font=dict(size=14)))
+    return fig
+
+
+def adn_league_chart(adn: pd.DataFrame) -> go.Figure:
+    """Barras apiladas: exitos vs fallidos por liga de origen (top 8)."""
+    df = adn[adn["etiqueta"].isin(["exitoso", "fallido"])].copy()
+    df["liga_anterior"] = df["liga_anterior"].fillna("Sin dato").replace("", "Sin dato")
+
+    # top ligas con mas fichajes
+    counts_total = df["liga_anterior"].value_counts().head(8)
+    df = df[df["liga_anterior"].isin(counts_total.index)]
+
+    pivot = df.groupby(["liga_anterior", "etiqueta"]).size().unstack(fill_value=0)
+    pivot = pivot.reindex(counts_total.index)   # ordenar por total
+
+    fig = go.Figure()
+    if "exitoso" in pivot.columns:
+        fig.add_trace(go.Bar(
+            x=pivot.index, y=pivot["exitoso"],
+            name="Exitosos", marker_color=ACCENT_GREEN,
+            text=pivot["exitoso"], textposition="inside",
+        ))
+    if "fallido" in pivot.columns:
+        fig.add_trace(go.Bar(
+            x=pivot.index, y=pivot["fallido"],
+            name="Fallidos", marker_color=ACCENT_RED,
+            text=pivot["fallido"], textposition="inside",
+        ))
+    fig.update_layout(barmode="stack", height=380, **LAYOUT_BASE,
+                       title=dict(text="Origen de los fichajes: exitos vs fallidos", font=dict(size=15)),
+                       xaxis=dict(tickangle=-30))
+    return fig
+
+
+def adn_money_lost_chart(adn: pd.DataFrame) -> go.Figure:
+    """Top fichajes que mas dinero perdieron (coste - recuperacion)."""
+    df = adn[adn["etiqueta"] == "fallido"].copy()
+    if df.empty:
+        return go.Figure()
+    df["perdida"] = df["coste_meur"] - df.get("coste_venta_meur", 0)
+    df = df.nlargest(10, "perdida")
+    df["label"] = df["jugador"] + " (" + df["anio_llegada"].astype(str) + ")"
+
+    fig = go.Figure(go.Bar(
+        x=df["perdida"], y=df["label"], orientation="h",
+        marker=dict(color=ACCENT_RED, line=dict(color="white", width=1)),
+        text=df["perdida"].apply(lambda v: f"-{v:.1f} M€"),
+        textposition="outside",
+    ))
+    fig.update_xaxes(title="Perdida neta (M€)")
+    fig.update_yaxes(autorange="reversed")   # mas perdida arriba
+    fig.update_layout(height=400, **LAYOUT_BASE,
+                       title=dict(text="Fichajes con mayor perdida economica", font=dict(size=15)))
+    return fig
+
+
+def adn_money_gained_chart(adn: pd.DataFrame) -> go.Figure:
+    """Top fichajes que mas dinero generaron (venta - coste)."""
+    df = adn[adn["etiqueta"] == "exitoso"].copy()
+    if df.empty:
+        return go.Figure()
+    df["ganancia"] = df.get("coste_venta_meur", 0) - df["coste_meur"]
+    # solo los que generaron ganancia positiva
+    df = df[df["ganancia"] > 0].nlargest(10, "ganancia")
+    if df.empty:
+        return go.Figure()
+    df["label"] = df["jugador"] + " (" + df["anio_llegada"].astype(str) + ")"
+
+    fig = go.Figure(go.Bar(
+        x=df["ganancia"], y=df["label"], orientation="h",
+        marker=dict(color=ACCENT_GREEN, line=dict(color="white", width=1)),
+        text=df["ganancia"].apply(lambda v: f"+{v:.1f} M€"),
+        textposition="outside",
+    ))
+    fig.update_xaxes(title="Ganancia neta (M€)")
+    fig.update_yaxes(autorange="reversed")   # mas ganancia arriba
+    fig.update_layout(height=400, **LAYOUT_BASE,
+                       title=dict(text="Fichajes con mayor ganancia economica", font=dict(size=15)))
+    return fig
