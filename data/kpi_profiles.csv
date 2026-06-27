@@ -1,0 +1,69 @@
+posicion,perfil,kpi,peso
+Delantero,Finalizador de area,goles_90,30
+Delantero,Finalizador de area,xg_90,25
+Delantero,Finalizador de area,tiros_area_90,20
+Delantero,Finalizador de area,conversion_pct,15
+Delantero,Finalizador de area,duelos_aereos_ganados_pct,10
+Delantero,Delantero asociativo,xa_90,25
+Delantero,Delantero asociativo,pases_clave_90,25
+Delantero,Delantero asociativo,xg_90,20
+Delantero,Delantero asociativo,regates_completados_90,15
+Delantero,Delantero asociativo,pases_completados_pct,15
+Delantero,Delantero presionante,recuperaciones_90,30
+Delantero,Delantero presionante,entradas_90,25
+Delantero,Delantero presionante,xg_90,25
+Delantero,Delantero presionante,intercepciones_90,20
+Extremo,Extremo finalizador,goles_90,30
+Extremo,Extremo finalizador,xg_90,25
+Extremo,Extremo finalizador,tiros_area_90,20
+Extremo,Extremo finalizador,regates_completados_90,15
+Extremo,Extremo finalizador,conversion_pct,10
+Extremo,Extremo creativo,xa_90,30
+Extremo,Extremo creativo,pases_clave_90,25
+Extremo,Extremo creativo,regates_completados_90,20
+Extremo,Extremo creativo,carreras_progresivas_90,15
+Extremo,Extremo creativo,pases_completados_pct,10
+Extremo,Extremo vertical,carreras_progresivas_90,30
+Extremo,Extremo vertical,regates_completados_90,25
+Extremo,Extremo vertical,xg_90,20
+Extremo,Extremo vertical,goles_90,15
+Extremo,Extremo vertical,pases_progresivos_90,10
+Mediocentro,Mediocentro organizador,pases_progresivos_90,30
+Mediocentro,Mediocentro organizador,pases_clave_90,25
+Mediocentro,Mediocentro organizador,pases_completados_pct,20
+Mediocentro,Mediocentro organizador,xa_90,15
+Mediocentro,Mediocentro organizador,carreras_progresivas_90,10
+Mediocentro,Mediocentro mixto,xa_90,20
+Mediocentro,Mediocentro mixto,pases_clave_90,20
+Mediocentro,Mediocentro mixto,recuperaciones_90,20
+Mediocentro,Mediocentro mixto,regates_completados_90,20
+Mediocentro,Mediocentro mixto,xg_90,20
+Mediocentro,Mediocentro defensivo,recuperaciones_90,30
+Mediocentro,Mediocentro defensivo,intercepciones_90,25
+Mediocentro,Mediocentro defensivo,entradas_90,20
+Mediocentro,Mediocentro defensivo,duelos_ganados_pct,15
+Mediocentro,Mediocentro defensivo,pases_completados_pct,10
+Defensa central,Central dominante defensivo,despejes_90,25
+Defensa central,Central dominante defensivo,duelos_aereos_ganados_pct,25
+Defensa central,Central dominante defensivo,intercepciones_90,20
+Defensa central,Central dominante defensivo,entradas_90,15
+Defensa central,Central dominante defensivo,recuperaciones_90,15
+Defensa central,Central con salida de balon,pases_progresivos_90,30
+Defensa central,Central con salida de balon,pases_completados_pct,25
+Defensa central,Central con salida de balon,carreras_progresivas_90,20
+Defensa central,Central con salida de balon,recuperaciones_90,15
+Defensa central,Central con salida de balon,duelos_ganados_pct,10
+Lateral,Lateral ofensivo,carreras_progresivas_90,25
+Lateral,Lateral ofensivo,xa_90,25
+Lateral,Lateral ofensivo,pases_clave_90,20
+Lateral,Lateral ofensivo,regates_completados_90,15
+Lateral,Lateral ofensivo,pases_progresivos_90,15
+Lateral,Lateral defensivo,entradas_90,30
+Lateral,Lateral defensivo,intercepciones_90,25
+Lateral,Lateral defensivo,recuperaciones_90,20
+Lateral,Lateral defensivo,duelos_ganados_pct,15
+Lateral,Lateral defensivo,despejes_90,10
+Portero,Shot-stopper,paradas_pct,50
+Portero,Shot-stopper,paradas_90,50
+Portero,Portero con juego de pies,pases_completados_pct,50
+Portero,Portero con juego de pies,pases_progresivos_90,50

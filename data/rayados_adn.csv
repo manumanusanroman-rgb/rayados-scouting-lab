@@ -1,0 +1,136 @@
+jugador,anio_llegada,edad_llegada,nacionalidad,club_anterior,liga_anterior,posicion,minutos_previos,coste_meur,coste_venta_meur,salario_anual_meur,anios_en_club,sigue_en_club,titulos_ganados,n_titulos_mayores,etiqueta,razon_principal,observacion
+Avilés Hurtado,2017,30,Colombia,Club Tijuana,México,Desconocido,0,7.13,0.0,0,5,False,Copa MX Apertura 2017; Apertura 2019 (Liga MX); Copa MX 2019-20; Concachampions 2021,2,fallido,"Coste 7.1ME, recupero solo 0%",Comprado por 7.1me. salio sin coste a pachuca
+Jonathan Urretaviscaya,2017,27,Uruguay,Pachuca,España,Desconocido,0,5.88,0.0,0,3,False,Copa MX Apertura 2017; Apertura 2019 (Liga MX); Copa MX 2019-20,1,fallido,"Coste 5.9ME, recupero solo 0%",Comprado por 5.9me. salio sin coste a peñarol
+Jorge Benítez,2017,24,Paraguay,Cruz Azul,México,Desconocido,0,5.5,0.0,0,2,False,Copa MX Apertura 2017,0,fallido,"Coste 5.5ME, recupero solo 0%",Comprado por 5.5me. salio sin coste a cerro porteño
+Leonel Vangioni,2017,30,Argentina,AC Milan,Italia,Desconocido,0,1.7,0.0,0,4,False,Copa MX Apertura 2017; Apertura 2019 (Liga MX); Copa MX 2019-20,1,neutro,Sin datos suficientes,Comprado por 1.7me. salio sin coste a sin equipo
+Pedro Aquino,2017,22,Perú,Sport. Cristal,Perú,Desconocido,0,0.9,0.0,0,1,False,Copa MX Apertura 2017,0,neutro,Solo 1 temporada,Comprado por 0.9me. salio sin coste a lobos buap
+Lucas Albertengo,2017,27,Argentina,Independiente,Italia,Desconocido,0,0.0,0.0,0,2,False,Copa MX Apertura 2017,0,neutro,Retorno de cesion (no es fichaje real),Salio sin coste a independiente
+Juan Pablo Carrizo,2017,33,Argentina,Inter,Italia,Desconocido,0,0.0,0.0,0,2,False,Copa MX Apertura 2017,0,neutro,Coste bajo,Llego libre. salio sin coste a cerro porteño
+Marco Bueno,2017,23,México,Pachuca,México,Desconocido,0,0.0,0.0,0,1,False,Copa MX Apertura 2017,0,neutro,Retorno de cesion (no es fichaje real),Salio sin coste a pachuca
+Antonio Portales,2017,21,México,Monterrey U19,México,Desconocido,0,0.0,0.0,0,2,False,Copa MX Apertura 2017,0,neutro,Coste bajo,Salio sin coste a san luis
+Julio Cruz,2017,22,México,Raya2,México,Desconocido,0,0.0,0.0,0,2,False,Copa MX Apertura 2017,0,neutro,Coste bajo,Salio sin coste a cartaginés
+Juan Álvarez,2017,21,México,Monterrey U19,México,Desconocido,0,0.0,0.0,0,2,False,Copa MX Apertura 2017,0,neutro,Coste bajo,Salio sin coste a monterrey ii
+Jonathan González,2017,18,México,Monterrey U19,Estados Unidos,Desconocido,0,0.0,0.0,0,5,False,Copa MX Apertura 2017; Apertura 2019 (Liga MX); Copa MX 2019-20; Concachampions 2021,2,exitoso,"Gano Copa MX Apertura 2017, llego libre (5 anios)",Salio sin coste a necaxa
+Stefan Medina,2017,25,Colombia,Pachuca,México,Desconocido,0,0.0,0.0,0,8,True,Copa MX Apertura 2017; Apertura 2019 (Liga MX); Copa MX 2019-20; Concachampions 2021,2,neutro,Retorno de cesion (no es fichaje real),Sigue en el club
+Neri Cardozo,2017,30,Argentina,Querétaro FC,México,Desconocido,0,0.0,0.0,0,1,False,Copa MX Apertura 2017,0,neutro,Retorno de cesion (no es fichaje real),Salio sin coste a racing
+Efraín Velarde,2017,31,México,Toluca,México,Desconocido,0,0.0,0.0,0,2,False,Copa MX Apertura 2017,0,neutro,Retorno de cesion (no es fichaje real),Salio sin coste a morelia
+Hiram Mier,2017,28,México,Querétaro FC,México,Desconocido,0,0.0,0.0,0,1,False,Copa MX Apertura 2017,0,neutro,Retorno de cesion (no es fichaje real),Salio sin coste a querétaro fc
+Leobardo López,2017,33,México,Tiburones Rojos,México,Desconocido,0,0.0,0.0,0,1,False,Copa MX Apertura 2017,0,neutro,Retorno de cesion (no es fichaje real),Salio sin coste a celaya
+Alberth Elis,2017,21,Honduras,Houston,Estados Unidos,Desconocido,0,0.0,2.2,0,1,False,Copa MX Apertura 2017,0,neutro,Retorno de cesion (no es fichaje real),Vendido por 2.2me a houston
+Luis Madrigal,2017,24,México,Min. Zacatecas,México,Desconocido,0,0.0,0.0,0,1,False,Copa MX Apertura 2017,0,neutro,Retorno de cesion (no es fichaje real),Salio sin coste a oaxaca
+Gerardo Moreno,2017,23,México,Tampico Madero,México,Desconocido,0,0.0,0.0,0,1,False,Copa MX Apertura 2017,0,neutro,Retorno de cesion (no es fichaje real),Salio sin coste a cimarrones
+Alejandro Berber,2017,29,México,Zacatepec,México,Desconocido,0,0.0,0.0,0,1,False,Copa MX Apertura 2017,0,neutro,Retorno de cesion (no es fichaje real),Salio sin coste a fc juárez
+Juan de Díos Ibarra,2017,38,México,Club Puebla,México,Desconocido,0,0.0,0.0,0,1,False,Copa MX Apertura 2017,0,neutro,Retorno de cesion (no es fichaje real),Salio sin coste a retirado
+Rodolfo Pizarro,2018,24,México,Chivas,México,Desconocido,0,14.5,10.91,0,2,False,Apertura 2019 (Liga MX); Copa MX 2019-20,1,fallido,Coste alto (14.5ME) revendido en 2 anio(s) al 75%,Comprado por 14.5me. vendido por 10.9me a inter miami
+Maximiliano Meza,2018,26,Argentina,Independiente,Argentina,Desconocido,0,13.15,1.8,0,7,False,Apertura 2019 (Liga MX); Copa MX 2019-20; Concachampions 2021,2,fallido,"Coste 13.2ME, recupero solo 14%",Comprado por 13.2me. vendido por 1.8me a river plate
+Jesús Gallardo,2018,23,México,Pumas UNAM,México,Desconocido,0,5.15,4.7,0,7,False,Apertura 2019 (Liga MX); Copa MX 2019-20; Concachampions 2021,2,exitoso,Recupero 91% tras 7 anios,Comprado por 5.2me. vendido por 4.7me a toluca
+Miguel Layún,2018,30,México,Villarreal,España,Desconocido,0,4.0,0.0,0,4,False,Apertura 2019 (Liga MX); Copa MX 2019-20; Concachampions 2021,2,fallido,"Coste 4.0ME, recupero solo 0%",Comprado por 4.0me. salio sin coste a cf américa
+Adam Bareiro,2018,22,Paraguay,Nacional,Paraguay,Desconocido,0,2.0,0.0,0,2,False,Apertura 2019 (Liga MX); Copa MX 2019-20,1,fallido,"Coste 2.0ME, salio libre/cesion en 2 anios",Comprado por 2.0me. salio sin coste a san lorenzo
+Marcelo Barovero,2018,34,Argentina,Necaxa,Italia,Desconocido,0,1.7,0.0,0,3,False,Apertura 2019 (Liga MX); Copa MX 2019-20,1,neutro,Sin datos suficientes,Comprado por 1.7me. salio sin coste a burgos cf
+Édson Gutiérrez,2018,22,México,Celaya,México,Desconocido,0,0.0,0.0,0,7,False,Apertura 2019 (Liga MX); Copa MX 2019-20; Concachampions 2021,2,exitoso,"Gano Apertura 2019 (Liga MX), llego libre (7 anios)",Salio sin coste a santos laguna
+Ángel Zaldívar,2018,24,México,Chivas,México,Desconocido,0,0.0,0.0,0,2,False,Apertura 2019 (Liga MX); Copa MX 2019-20,1,neutro,Retorno de cesion (no es fichaje real),Salio sin coste a chivas
+Johan Vásquez,2018,19,México,Cimarrones,México,Desconocido,0,0.0,3.5,0,2,False,Apertura 2019 (Liga MX); Copa MX 2019-20,1,neutro,Retorno de cesion (no es fichaje real),Vendido por 3.5me a pumas unam
+Carlos Rodríguez,2018,21,México,Monterrey U19,México,Desconocido,0,0.0,2.2,0,4,False,Apertura 2019 (Liga MX); Copa MX 2019-20; Concachampions 2021,2,exitoso,"Llego libre, vendido por 2.2ME",Vendido por 2.2me a cruz azul
+Édson Reséndez,2018,22,México,Raya2,México,Desconocido,0,0.0,0.0,0,4,False,Apertura 2019 (Liga MX); Copa MX 2019-20; Concachampions 2021,2,exitoso,"Gano Apertura 2019 (Liga MX), llego libre (4 anios)",Salio sin coste a raya2
+Eric Cantú,2018,19,México,Monterrey U19,México,Desconocido,0,0.0,0.0,0,4,False,Apertura 2019 (Liga MX); Copa MX 2019-20; Concachampions 2021,2,exitoso,"Gano Apertura 2019 (Liga MX), llego libre (4 anios)",Salio sin coste a san luis
+Edwin Cardona,2018,26,Colombia,Boca Juniors,Argentina,Desconocido,0,0.0,0.0,0,1,False,,0,neutro,Retorno de cesion (no es fichaje real),Salio sin coste a pachuca
+Alexander Domínguez,2018,31,Ecuador,Colón,Argentina,Desconocido,0,0.0,0.85,0,1,False,,0,neutro,Retorno de cesion (no es fichaje real),Vendido por 0.8me a vélez sarsfield
+Iván Piris,2018,29,Paraguay,León,Italia,Desconocido,0,0.0,0.0,0,1,False,,0,neutro,Retorno de cesion (no es fichaje real),Salio sin coste a libertad
+Iván Piris,2018,29,Paraguay,Newell's,Italia,Desconocido,0,0.0,0.0,0,1,False,,0,neutro,Retorno de cesion (no es fichaje real),Salio sin coste a libertad
+Edgar Castillo,2018,32,Estados Unidos,Colorado,México,Desconocido,0,0.0,0.0,0,1,False,,0,neutro,Retorno de cesion (no es fichaje real),Salio sin coste a new england
+Cándido Ramírez,2018,25,México,Correcaminos,México,Desconocido,0,0.0,0.0,0,1,False,,0,neutro,Retorno de cesion (no es fichaje real),Salio sin coste a correcaminos
+Cándido Ramírez,2018,25,México,Atlas,México,Desconocido,0,0.0,0.0,0,1,False,,0,neutro,Retorno de cesion (no es fichaje real),Salio sin coste a correcaminos
+Pedro Aquino,2018,23,Perú,Lobos BUAP,México,Desconocido,0,0.0,1.5,0,1,False,,0,neutro,Retorno de cesion (no es fichaje real),Vendido por 1.5me a león
+Luis Madrigal,2018,25,México,Oaxaca,México,Desconocido,0,0.0,0.0,0,1,False,,0,neutro,Retorno de cesion (no es fichaje real),Salio sin coste a chivas
+Luis Cárdenas,2018,25,México,Querétaro FC,México,Desconocido,0,0.0,0.0,0,1,False,,0,neutro,Retorno de cesion (no es fichaje real),Salio sin coste a querétaro fc
+Luis Cárdenas,2018,24,México,Zacatepec,México,Desconocido,0,0.0,0.0,0,1,False,,0,neutro,Retorno de cesion (no es fichaje real),Salio sin coste a querétaro fc
+Alejandro Berber,2018,31,México,Venados FC,México,Desconocido,0,0.0,0.0,0,1,False,,0,neutro,Retorno de cesion (no es fichaje real),Salio sin coste a venados fc
+Alejandro Berber,2018,30,México,FC Juárez,México,Desconocido,0,0.0,0.0,0,1,False,,0,neutro,Retorno de cesion (no es fichaje real),Salio sin coste a venados fc
+Julio Cruz,2018,22,México,Guadalupe FC,Costa Rica,Desconocido,0,0.0,0.0,0,1,False,,0,neutro,Retorno de cesion (no es fichaje real),Salio sin coste a cartaginés
+Vincent Janssen,2019,25,Países Bajos,Tottenham,Inglaterra,Desconocido,0,9.0,5.5,0,4,False,Apertura 2019 (Liga MX); Copa MX 2019-20; Concachampions 2021,2,exitoso,"Gano Apertura 2019 (Liga MX), recupero 61% en 4 anios",Comprado por 9.0me. vendido por 5.5me a royal amberes
+Aké Loba,2019,21,Costa de Marfil,U. San Martín,Perú,Desconocido,0,7.16,6.18,0,3,False,Apertura 2019 (Liga MX); Copa MX 2019-20; Concachampions 2021,2,exitoso,"Gano Apertura 2019 (Liga MX), recupero 86% en 3 anios",Comprado por 7.2me. vendido por 6.2me a nashville
+Matías Kranevitter,2019,26,Argentina,Zenit,Italia,Desconocido,0,2.6,1.7,0,4,False,Apertura 2019 (Liga MX); Copa MX 2019-20; Concachampions 2021,2,exitoso,"Gano Apertura 2019 (Liga MX), recupero 65% en 4 anios",Comprado por 2.6me. vendido por 1.7me a river plate
+Johan Vásquez,2019,21,México,Cimarrones,México,Desconocido,0,1.8,3.5,0,1,False,Apertura 2019 (Liga MX); Copa MX 2019-20,1,exitoso,Operacion rentable: vendido al 194% del coste,Comprado por 1.8me. vendido por 3.5me a pumas unam
+Edwin Cardona,2019,27,Colombia,Pachuca,México,Desconocido,0,0.0,0.0,0,1,False,Apertura 2019 (Liga MX); Copa MX 2019-20,1,neutro,Retorno de cesion (no es fichaje real),Salio sin coste a club tijuana
+Luis Madrigal,2019,26,México,Chivas,México,Desconocido,0,0.0,0.0,0,1,False,Apertura 2019 (Liga MX); Copa MX 2019-20,1,neutro,Retorno de cesion (no es fichaje real),Salio sin coste a necaxa
+Sebastián Vegas,2020,23,Chile,Mazatlán FC,México,Desconocido,0,0.0,0.0,0,2,False,Concachampions 2021,1,neutro,Retorno de cesion (no es fichaje real),Salio sin coste a mazatlán fc
+Adrián Mora,2020,23,México,Toluca,México,Desconocido,0,0.0,0.0,0,2,False,Concachampions 2021,1,neutro,Retorno de cesion (no es fichaje real),Salio sin coste a toluca
+Alfonso Alvarado,2020,20,México,Monterrey U19,México,Desconocido,0,0.0,0.0,0,3,False,Concachampions 2021,1,exitoso,"Gano Concachampions 2021, llego libre (3 anios)",Salio sin coste a león
+Daniel Parra,2020,20,México,Monterrey U19,México,Desconocido,0,0.0,0.0,0,3,False,Concachampions 2021,1,exitoso,"Gano Concachampions 2021, llego libre (3 anios)",Salio sin coste a morelia
+Hugo González,2020,29,México,Necaxa,México,Desconocido,0,0.0,0.0,0,2,False,Concachampions 2021,1,neutro,Retorno de cesion (no es fichaje real),Salio sin coste a fc juárez
+Jonathan Urretaviscaya,2020,30,Uruguay,Peñarol,España,Desconocido,0,0.0,0.0,0,1,False,,0,neutro,Retorno de cesion (no es fichaje real),Salio sin coste a peñarol
+Adam Bareiro,2020,23,Paraguay,San Lorenzo,Argentina,Desconocido,0,0.0,0.0,0,1,False,,0,neutro,Retorno de cesion (no es fichaje real),Salio sin coste a alanyaspor
+Cándido Ramírez,2020,27,México,Morelia,México,Desconocido,0,0.0,0.0,0,1,False,,0,neutro,Retorno de cesion (no es fichaje real),Salio sin coste a mazatlán fc
+Luis Madrigal,2020,27,México,Necaxa,México,Desconocido,0,0.0,0.0,0,1,False,,0,neutro,Retorno de cesion (no es fichaje real),Salio sin coste a salamanca cf
+Jorge Benítez,2020,27,Paraguay,Cerro Porteño,Paraguay,Desconocido,0,0.0,0.0,0,1,False,,0,neutro,Retorno de cesion (no es fichaje real),Salio sin coste a sin equipo
+Antonio Portales,2020,24,México,San Luis,México,Desconocido,0,0.0,0.0,0,1,False,,0,neutro,Retorno de cesion (no es fichaje real),Salio sin coste a oaxaca
+Esteban Andrada,2021,30,Argentina,Boca Juniors,Argentina,Desconocido,0,5.0,0.0,0,5,False,Concachampions 2021,1,fallido,"Coste 5.0ME, recupero solo 0%",Comprado por 5.0me. salio sin coste a real zaragoza
+Érick Aguirre,2021,24,México,Pachuca,México,Desconocido,0,4.6,0.0,0,4,True,Concachampions 2021,1,exitoso,Gano Concachampions 2021 (4 temp en club),Comprado por 4.6me. sigue en el club
+Sebastián Vegas,2021,24,Chile,Mazatlán FC,México,Desconocido,0,3.64,0.0,0,1,False,Concachampions 2021,1,fallido,"Coste 3.6ME, recupero solo 0%",Comprado por 3.6me. salio sin coste a mazatlán fc
+Duván Vergara,2021,24,Colombia,CD América,Colombia,Desconocido,0,2.1,0.0,0,3,False,Concachampions 2021,1,neutro,Sin datos suficientes,Comprado por 2.1me. salio sin coste a santos laguna
+Héctor Moreno,2021,33,México,Al-Gharafa,España,Desconocido,0,0.0,0.0,0,5,False,Concachampions 2021,1,exitoso,"Gano Concachampions 2021, llego libre (5 anios)",Llego libre. salio sin coste a retirado
+Luis Romo,2021,26,México,Cruz Azul,México,Desconocido,0,0.0,6.5,0,4,False,Concachampions 2021,1,exitoso,"Llego libre, vendido por 6.5ME",Vendido por 6.5me a cruz azul
+Rodolfo Pizarro,2021,27,México,Inter Miami,Estados Unidos,Desconocido,0,0.0,0.0,0,2,False,Concachampions 2021,1,neutro,Retorno de cesion (no es fichaje real),Salio sin coste a inter miami
+Joel Campbell,2021,29,Costa Rica,León,México,Desconocido,0,0.0,0.0,0,2,False,Concachampions 2021,1,neutro,Retorno de cesion (no es fichaje real),Salio sin coste a león
+César Ramos,2021,21,México,Monterrey U19,México,Desconocido,0,0.0,0.0,0,5,False,Concachampions 2021,1,exitoso,"Gano Concachampions 2021, llego libre (5 anios)",Salio sin coste a atlas
+Luis Sánchez,2021,21,México,Monterrey U19,México,Desconocido,0,0.0,0.0,0,3,False,Concachampions 2021,1,exitoso,"Gano Concachampions 2021, llego libre (3 anios)",Salio sin coste a mazatlán fc
+Áxel Grijalva,2021,20,México,Monterrey U19,México,Desconocido,0,0.0,0.0,0,4,False,Concachampions 2021,1,exitoso,"Gano Concachampions 2021, llego libre (4 anios)",Salio sin coste a venados fc
+Adam Bareiro,2021,24,Paraguay,Alanyaspor,Turquía,Desconocido,0,0.0,0.0,0,1,False,Concachampions 2021,1,neutro,Retorno de cesion (no es fichaje real),Salio sin coste a san luis
+Adam Bareiro,2021,25,Paraguay,San Luis,México,Desconocido,0,0.0,0.0,0,1,False,Concachampions 2021,1,neutro,Retorno de cesion (no es fichaje real),Salio sin coste a san luis
+Jonathan González,2021,22,México,Necaxa,Estados Unidos,Desconocido,0,0.0,0.0,0,1,False,Concachampions 2021,1,neutro,Retorno de cesion (no es fichaje real),Salio sin coste a necaxa
+Cándido Ramírez,2021,28,México,Mazatlán FC,México,Desconocido,0,0.0,0.0,0,1,False,Concachampions 2021,1,neutro,Retorno de cesion (no es fichaje real),Salio sin coste a sin equipo
+Eric Cantú,2021,22,México,San Luis,México,Desconocido,0,0.0,0.0,0,1,False,Concachampions 2021,1,neutro,Retorno de cesion (no es fichaje real),Salio sin coste a san luis
+Antonio Portales,2021,25,México,Oaxaca,México,Desconocido,0,0.0,0.0,0,1,False,Concachampions 2021,1,neutro,Retorno de cesion (no es fichaje real),Salio sin coste a oaxaca
+Jordi Cortizo,2022,26,México,Club Puebla,España,Desconocido,0,5.23,2.59,0,4,False,,0,fallido,"Coste 5.2ME, recupero solo 50%",Comprado por 5.2me. vendido por 2.6me a león
+Rodrigo Aguirre,2022,27,Uruguay,LDU Quito,Ecuador,Desconocido,0,4.75,2.7,0,3,False,,0,neutro,Sin datos suficientes,Comprado por 4.8me. vendido por 2.7me a cf américa
+Joao Rojas,2022,24,Ecuador,CS Emelec,Ecuador,Desconocido,0,1.9,0.0,0,2,False,,0,neutro,Sin datos suficientes,Comprado por 1.9me. salio sin coste a barcelona sc
+Germán Berterame,2022,23,México,San Luis,Argentina,Desconocido,0,0.0,12.6,0,4,False,,0,exitoso,"Llego libre, vendido por 12.6ME",Llego libre. vendido por 12.6me a inter miami
+Víctor Guzmán,2022,20,México,Club Tijuana,México,Desconocido,0,0.0,0.0,0,3,True,,0,neutro,Sigue en club tras 3+ anios,Sigue en el club
+Omar Govea,2022,26,México,FC Voluntari,Rumania,Desconocido,0,0.0,0.0,0,2,False,,0,neutro,Retorno de cesion (no es fichaje real),Salio sin coste a fc voluntari
+Adam Bareiro,2022,26,Paraguay,San Lorenzo,Argentina,Desconocido,0,0.0,1.9,0,1,False,,0,neutro,Retorno de cesion (no es fichaje real),Vendido por 1.9me a san lorenzo
+Hugo González,2022,31,México,FC Juárez,México,Desconocido,0,0.0,0.0,0,1,False,,0,neutro,Retorno de cesion (no es fichaje real),Salio sin coste a necaxa
+Jonathan González,2022,23,México,Minnesota,Estados Unidos,Desconocido,0,0.0,0.0,0,1,False,,0,neutro,Retorno de cesion (no es fichaje real),Salio sin coste a minnesota
+Jonathan González,2022,23,México,Querétaro FC,Estados Unidos,Desconocido,0,0.0,0.0,0,1,False,,0,neutro,Retorno de cesion (no es fichaje real),Salio sin coste a minnesota
+Eric Cantú,2022,23,México,Correcaminos,México,Desconocido,0,0.0,0.0,0,1,False,,0,neutro,Retorno de cesion (no es fichaje real),Salio sin coste a raya2
+Daniel Parra,2022,23,México,Necaxa,México,Desconocido,0,0.0,0.0,0,1,False,,0,neutro,Retorno de cesion (no es fichaje real),Salio sin coste a morelia
+Sergio Canales,2023,32,España,Real Betis,España,Desconocido,0,10.0,0.0,0,2,True,,0,neutro,Sin datos suficientes,Comprado por 10.0me. sigue en el club
+Brandon Vazquez,2023,25,Estados Unidos,Cincinnati,México,Desconocido,0,7.81,9.6,0,2,False,,0,exitoso,Operacion rentable: vendido al 123% del coste,Comprado por 7.8me. vendido por 9.6me a austin
+Gerardo Arteaga,2023,25,México,KRC Genk,Bélgica,Desconocido,0,4.5,0.0,0,2,True,,0,neutro,Sin datos suficientes,Comprado por 4.5me. sigue en el club
+Jesús Corona,2023,30,México,Sevilla FC,Portugal,Desconocido,0,3.5,0.0,0,2,True,,0,neutro,Sin datos suficientes,Comprado por 3.5me. sigue en el club
+Jorge Rodríguez,2023,28,Argentina,Estudiantes LP,Argentina,Desconocido,0,3.29,0.0,0,2,True,,0,neutro,Sin datos suficientes,Comprado por 3.3me. sigue en el club
+Omar Govea,2023,27,México,FC Voluntari,Rumania,Desconocido,0,0.5,0.0,0,1,False,,0,neutro,Solo 1 temporada,Comprado por 0.5me. salio sin coste a fc voluntari
+Tony Leone,2023,19,México,Los Ángeles FC,Estados Unidos,Desconocido,0,0.0,0.0,0,3,False,,0,neutro,Coste bajo,Llego libre. salio sin coste a pumas unam
+Jaziel Martínez,2023,23,México,Raya2,México,Desconocido,0,0.0,0.0,0,2,False,,0,neutro,Coste bajo,Salio sin coste a morelia
+Hugo González,2023,32,México,Necaxa,México,Desconocido,0,0.0,0.0,0,1,False,,0,neutro,Retorno de cesion (no es fichaje real),Salio sin coste a mazatlán fc
+Alfonso Alvarado,2023,23,México,León,México,Desconocido,0,0.0,0.0,0,1,False,,0,neutro,Retorno de cesion (no es fichaje real),Salio sin coste a león
+Luis Sánchez,2023,23,México,Pachuca,México,Desconocido,0,0.0,0.0,0,1,False,,0,neutro,Retorno de cesion (no es fichaje real),Salio sin coste a mazatlán fc
+Daniel Parra,2023,23,México,Morelia,México,Desconocido,0,0.0,0.0,0,1,False,,0,neutro,Retorno de cesion (no es fichaje real),Salio sin coste a forge fc
+Lucas Ocampos,2024,30,Argentina,Sevilla FC,España,Desconocido,0,7.25,0.0,0,1,True,,0,neutro,Sin datos suficientes,Comprado por 7.2me. sigue en el club
+Fidel Ambríz,2024,21,México,León,México,Desconocido,0,6.67,0.0,0,1,True,,0,neutro,Sin datos suficientes,Comprado por 6.7me. sigue en el club
+Nelson Deossa,2024,24,Colombia,Pachuca,México,Desconocido,0,5.8,11.7,0,2,False,,0,exitoso,Operacion rentable: vendido al 202% del coste,Comprado por 5.8me. vendido por 11.7me a real betis
+Santiago Mele,2024,27,Uruguay,Junior FC,Italia,Desconocido,0,3.0,0.0,0,1,True,,0,neutro,Sin datos suficientes,Comprado por 3.0me. sigue en el club
+Johan Rojas,2024,21,Colombia,Inter Bogotá,Colombia,Desconocido,0,2.3,0.0,0,1,False,,0,fallido,"Coste 2.3ME, salio libre/cesion en 1 anios",Comprado por 2.3me. salio sin coste a necaxa
+Óliver Torres,2024,29,España,Sevilla FC,España,Desconocido,0,0.0,0.0,0,1,True,,0,neutro,Coste bajo,Llego libre. sigue en el club
+Ricardo Chávez,2024,30,México,San Luis,México,Desconocido,0,0.0,0.0,0,1,True,,0,neutro,Coste bajo,Sigue en el club
+Alfonso Alvarado,2024,24,México,León,México,Desconocido,0,0.0,2.15,0,2,False,,0,exitoso,"Llego libre, vendido por 2.1ME",Vendido por 2.1me a león
+Carlos Salcedo,2024,31,México,FC Juárez,México,Desconocido,0,0.0,0.0,0,1,True,,0,neutro,Coste bajo,Sigue en el club
+Luis Reyes,2024,33,México,Atlas,México,Desconocido,0,0.0,0.0,0,1,True,,0,neutro,Coste bajo,Sigue en el club
+Roberto de la Rosa,2024,24,México,Pachuca,México,Desconocido,0,0.0,0.0,0,2,False,,0,neutro,Retorno de cesion (no es fichaje real),Salio sin coste a pachuca
+Sergio Ramos,2024,38,España,Sin equipo,,Desconocido,0,0.0,0.0,0,2,False,,0,neutro,Coste bajo,Salio sin coste a sin equipo
+Iker Fimbres,2024,19,México,Monterrey U21,México,Desconocido,0,0.0,0.0,0,1,True,,0,neutro,Coste bajo,Sigue en el club
+Duván Vergara,2024,27,Colombia,Santos Laguna,México,Desconocido,0,0.0,0.0,0,1,False,,0,neutro,Retorno de cesion (no es fichaje real),Salio sin coste a cd américa
+Daniel Parra,2024,25,México,Forge FC,Canadá,Desconocido,0,0.0,0.0,0,1,False,,0,neutro,Retorno de cesion (no es fichaje real),Salio sin coste a morelia
+Uros Djurdjevic,2025,31,Montenegro,Atlas,Serbia,Desconocido,0,4.5,0.0,0,0,True,,0,neutro,Sin datos suficientes,Comprado por 4.5me. sigue en el club
+Luca Orellano,2025,25,Argentina,Cincinnati,Estados Unidos,Desconocido,0,3.82,0.0,0,0,True,,0,neutro,Sin datos suficientes,Comprado por 3.8me. sigue en el club
+Anthony Martial,2025,29,Francia,AEK Atenas,Guadalupe,Desconocido,0,1.0,0.0,0,0,True,,0,neutro,Sin datos suficientes,Comprado por 1.0me. sigue en el club
+Alonso Aceves,2025,24,México,Pachuca,México,Desconocido,0,0.0,0.0,0,0,True,,0,neutro,Coste bajo,Sigue en el club
+Roberto de la Rosa,2025,25,México,Pachuca,México,Desconocido,0,0.0,0.0,0,1,False,,0,neutro,Solo 1 temporada,Salio sin coste a pachuca
+Sebastián Rodríguez,2025,18,México,Houston,Estados Unidos,Desconocido,0,0.0,0.0,0,0,True,,0,neutro,Retorno de cesion (no es fichaje real),Sigue en el club
+Michell Rodríguez,2025,24,México,Monterrey U21,México,Desconocido,0,0.0,0.0,0,1,False,,0,neutro,Solo 1 temporada,Salio sin coste a tampico madero
+César Garza,2025,20,México,Monterrey U21,México,Desconocido,0,0.0,0.0,0,0,True,,0,neutro,Coste bajo,Sigue en el club
+César Bustos,2025,19,México,Monterrey U21,México,Desconocido,0,0.0,0.0,0,0,True,,0,neutro,Coste bajo,Sigue en el club
+Johan Rojas,2025,23,Colombia,Necaxa,México,Desconocido,0,0.0,0.0,0,1,False,,0,neutro,Retorno de cesion (no es fichaje real),Salio sin coste a vasco da gama
+Johan Rojas,2025,22,Colombia,Necaxa,México,Desconocido,0,0.0,0.0,0,1,False,,0,neutro,Retorno de cesion (no es fichaje real),Salio sin coste a vasco da gama
+Arturo González,2025,30,México,Pachuca,México,Desconocido,0,0.0,0.0,0,1,False,,0,neutro,Retorno de cesion (no es fichaje real),Salio sin coste a atlas
+Sebastián Vegas,2025,29,Chile,Colo-Colo,Chile,Desconocido,0,0.0,0.0,0,1,False,,0,neutro,Retorno de cesion (no es fichaje real),Salio sin coste a león
+Luis Sánchez,2025,25,México,Mazatlán FC,México,Desconocido,0,0.0,0.0,0,0,True,,0,neutro,Retorno de cesion (no es fichaje real),Sigue en el club

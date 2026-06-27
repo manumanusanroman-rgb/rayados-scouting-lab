@@ -1,0 +1,13 @@
+concepto,valor,unidad,descripcion
+presupuesto_anual_total,95.0,meur,Presupuesto operativo anual del primer equipo (estimado)
+masa_salarial_actual,21.6,meur,Suma de salarios reales del squad (SalarySport)
+presupuesto_fichajes,19.3,meur,"Gasto medio anual historico en fichajes (2017-2025, Transfermarkt)"
+presupuesto_scouting,1.2,meur,Departamento de analisis y scouting
+jugadores_plantilla,17.0,unidades,Jugadores en analisis del primer equipo
+extranjeros_plantilla,7.0,unidades,Plazas de no formados en Mexico ocupadas
+limite_extranjeros,10.0,unidades,Maximo de extranjeros permitidos por reglamento Liga MX
+edad_media_plantilla,28.5,anios,Edad media ponderada por minutos
+titulos_liga_mx,5.0,unidades,Campeonatos de Liga MX (1986 86-87 2003 2009 2019)
+titulos_concachampions,5.0,unidades,Concacaf Champions League
+titulos_copa_mx,3.0,unidades,Copa Mexico
+ultimo_titulo_liga,2019.0,anio,Apertura 2019 ultimo titulo liguero
